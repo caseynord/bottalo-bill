@@ -2,6 +2,7 @@ import random
 
 import asyncio
 from discord import Game
+# from discord import Message
 from discord import Status
 from discord.ext import commands
 
@@ -239,6 +240,36 @@ async def play_games():
 async def clear(ctx, amount: int):
     """Clear messages from channel."""
     await ctx.channel.purge(limit=amount)
+    asyncio.sleep(5)
+    await ctx.send("**__Bottalo Bill Commands:__**\n"
+                   ".\n"
+                   "__Info Commands:__\n"
+                   "!animals - legendary animal information\n"
+                   "!fish - legendary fish information\n"
+                   "!ciginfo - cigarette card information\n"
+                   "!mystery - mysteries information\n"
+                   ".\n"
+                   "!dream - dreamcatcher locations\n"
+                   "!carvin - rock carving locations\n"
+                   "!cigmaps - cigarette card locations\n"
+                   ".\n"
+                   "!hadino - New Hanover & Ambarino dino bone locations\n"
+                   "!wedino - West Elizabeth dino bone locations\n"
+                   "!nadino - New Austin dino bone locations\n"
+                   ".\n"
+                   "!aicigs - amazing inventions cigarette cards locations\n"
+                   "!awpcigs - artists, writers, and poets cigarette cards locations\n"
+                   "!bhcigs - breeds of horses cigarette cards locations\n"
+                   "!fgcigs - famous gunslingers cigarette cards locations\n"
+                   "!faacigs - fauna of north america cigarette cards locations\n"
+                   "!flacigs - flora of north america cigarette cards locations\n"                    "!gbcigs - gems of beauty cigarette cards locations"
+                   "!mtcigs - marvels of time cigarette cards locations\n"
+                   "!pacigs - prominent americans cigarette cards locations\n"
+                   "!sscigs - stars of the stage cigarette cards locations\n"
+                   "!vacigs - vistas of america cigarette cards locations\n"
+                   "!wccigs - the world's champions cigarette cards locations\n")
+    # TODO: figure out how to pin this message after it is generated!
+    # await Message.pin()
 
 
 @client.event
