@@ -1,3 +1,8 @@
+import random
+
+import asyncio
+from discord import Game
+from discord import Status
 from discord.ext import commands
 
 BOT_PREFIX = ("!", "?")
@@ -14,13 +19,14 @@ client = commands.Bot(command_prefix=BOT_PREFIX)
 # TODO: add link to cigarette card exploit
 # TODO: legendary animals locations
 # TODO: add links to mysteries
+# TODO: dreamcatcher maps
 
 
 # - MENUS - ##################################################################
 
 @client.command()
 async def howdy(ctx):
-    r"""Say "howdy" when a user types "!howdy" and list basic commands."""
+    """Say 'howdy' when a user types '!howdy' and list basic commands."""
     await ctx.send("howdy, {0}".format(ctx.author))
     await ctx.send("i've got maps and information, partner, what're ya lookin' for?")
     await ctx.send("------")
@@ -75,105 +81,119 @@ async def cigarette_cards(ctx):
 
 @client.command(name="hadino")
 async def hanover_ambarino_dino_bones(ctx):
-    await ctx.send('https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-1-768x501.png'.format(ctx))
+    await ctx.send("https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-1-768x501.png".format(ctx))
 
 
 @client.command(name="wedino")
 async def west_elizabeth_dino_bones(ctx):
-    await ctx.send('https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-2-768x445.png'.format(ctx))
+    await ctx.send("https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-2-768x445.png".format(ctx))
 
 
 @client.command(name="nadino")
 async def new_austin_dino_bones(ctx):
-    await ctx.send('https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-3-768x467.png'.format(ctx))
+    await ctx.send("https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-3-768x467.png".format(ctx))
 
 
 # - ROCK CARVINGS - ##########################################################
 
 @client.command(name="carv")
 async def rock_carvings(ctx):
-    await ctx.send('http://www.powerpyx.com/wp-content/uploads/red-dead-redemption-2-rock-carvings-locations-map.jpg'.format(ctx))
+    await ctx.send("http://www.powerpyx.com/wp-content/uploads/red-dead-redemption-2-rock-carvings-locations-map.jpg".format(ctx))
 
 
 # - CIGARETTE CARDS - ########################################################
 
 @client.command(name="aicigs")
 async def amazing_inventions_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/amazing-inventions-cigarette-cards-red-dead-redemption-2-update.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/amazing-inventions-cigarette-cards-red-dead-redemption-2-update.jpg".format(ctx))
 
 
 @client.command(name="awpcigs")
 async def artists_writers_poets_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-artists-writers-and-poets-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-artists-writers-and-poets-cigarette-card-locations-map.jpg".format(ctx))
 
 
 
 @client.command(name="bhcigs")
 async def breeds_of_horses_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-breeds-of-horses-cigarette-card-maps.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-breeds-of-horses-cigarette-card-maps.jpg".format(ctx))
 
 
 @client.command(name="fgcigs")
 async def famous_gunslingers_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-famous-gunslingers-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-famous-gunslingers-cigarette-card-locations-map.jpg".format(ctx))
 
 
 @client.command(name="facigs")
 async def fauna_of_north_america_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-fauna-of-north-america-cigarette-cards-location-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/10/all-fauna-of-north-america-cigarette-cards-location-map.jpg".format(ctx))
 
 
 @client.command(name="flacigs")
 async def flora_of_north_america_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-flora-of-north-america-cigarette-cards-location-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-flora-of-north-america-cigarette-cards-location-map.jpg".format(ctx))
 
 @client.command(name="gbcigs")
 async def gems_of_beauty_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-gems-of-beauty-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-gems-of-beauty-cigarette-card-locations-map.jpg".format(ctx))
 
 
 @client.command(name="mtcigs")
 async def marvels_of_travel_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-marvels-of-travel-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-marvels-of-travel-cigarette-card-locations-map.jpg".format(ctx))
 
 
 @client.command(name="pacigs")
 async def prominent_americans_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-prominent-americans-cigarette-cards-location-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-prominent-americans-cigarette-cards-location-map.jpg".format(ctx))
 
 
 @client.command(name="sscigs")
 async def stars_of_the_stage_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-stars-of-the-stage-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-stars-of-the-stage-cigarette-card-locations-map.jpg".format(ctx))
 
 
 @client.command(name="vacigs")
 async def vistas_of_america_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-vistas-of-america-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-vistas-of-america-cigarette-card-locations-map.jpg".format(ctx))
 
 
 @client.command(name="wccigs")
 async def the_worlds_champions_cards(ctx):
-    await ctx.send('https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-worlds-champions-cigarette-card-locations-map.jpg'.format(ctx))
+    await ctx.send("https://d1lss44hh2trtw.cloudfront.net/assets/editorial/2018/11/all-worlds-champions-cigarette-card-locations-map.jpg".format(ctx))
 
 
-'''
-@client.event
-async def howdy(message):
-    # we do not want the bot to reply to itself
-    if message.author == client.user:
-        return
+async def play_games():
+    await client.wait_until_ready()
+    playing_game = True
+    game = [
+        "Poker",
+        "Blackjack",
+        "Horseshoes",
+        "Red Dead Revolver",
+        "Red Dead Redemption",
+        "Red Dead Redemption 2",
+        "Sunset Riders",
+        "Custer's Revenge",
+        "Gun Fight",
+        "Outlaw"
+    ]
+    while not client.is_closed():
+        if playing_game:
+            await client.change_presence(game=Game(name=random.choice(game)))
+            await asyncio.sleep(3600)  # run every 1 hour
+            playing_game = False
+        elif not playing_game:
+            await client.change_presence(status=Status.online)
+            await asyncio.sleep(900)  # run every 15 minutes
+            playing_game = True
 
-    if message.content.startswith('!hello'):
-        msg = 'Howdy, {0.author.mention}'.format(message)
-        await message.channel.send(msg)
-'''
 
 @client.event
 async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
+    log_msg = "Logged in as: " + client.user.name
+    print(log_msg)
+    print("-" * len(log_msg))
 
+client.loop.create_task(play_games())
 client.run(TOKEN)
