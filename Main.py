@@ -2,16 +2,18 @@ import random
 
 import asyncio
 from discord import Game
-# from discord import Message
+from discord import Message
 from discord import Status
 from discord.ext import commands
 
-BOT_PREFIX = ("!", "?")
+BOT_PREFIX = "!"
 
-# real token
-TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
+# real token/bot
+# BOT_NAME = "Bottalo Bill"
+# TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
 
-# tester token
+# tester token/bot
+# BOT_NAME = "TestBot"
 # TOKEN = "NTExMDIyOTIzNjcxMjczNDc0.Dsk4PQ.b5RCBuq1OlLYVkHnpMTNgh0dgmM"
 
 client = commands.Bot(command_prefix=BOT_PREFIX)
@@ -238,9 +240,9 @@ async def play_games():
 
 @client.command()
 async def clear(ctx, amount: int):
-    """Clear messages from channel."""
+    """Clear messages from channel and re-posts/pins command list."""
     await ctx.channel.purge(limit=amount)
-    asyncio.sleep(5)
+    await asyncio.sleep(3)
     await ctx.send("**__Bottalo Bill Commands:__**\n"
                    ".\n"
                    "__Info Commands:__\n"
@@ -249,6 +251,7 @@ async def clear(ctx, amount: int):
                    "!ciginfo - cigarette card information\n"
                    "!mystery - mysteries information\n"
                    ".\n"
+                   "__Map Commands:__"
                    "!dream - dreamcatcher locations\n"
                    "!carvin - rock carving locations\n"
                    "!cigmaps - cigarette card locations\n"
@@ -267,9 +270,11 @@ async def clear(ctx, amount: int):
                    "!pacigs - prominent americans cigarette cards locations\n"
                    "!sscigs - stars of the stage cigarette cards locations\n"
                    "!vacigs - vistas of america cigarette cards locations\n"
-                   "!wccigs - the world's champions cigarette cards locations\n")
-    # TODO: figure out how to pin this message after it is generated!
-    # await Message.pin()
+                   "!wccigs - the world's champions cigarette cards locations\n"
+                   ".\n"
+                   "!clear 100 - clear last 100 messages and re-post commands")
+    msg = await ctx.channel.history().get(author__name=BOT_NAME)
+    await Message.pin(msg)
 
 
 @client.event
