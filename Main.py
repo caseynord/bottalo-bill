@@ -8,18 +8,12 @@ from discord.ext import commands
 BOT_PREFIX = ("!", "?")
 
 # real token
-TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
+# TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
 
 # tester token
-# TOKEN = "NTExMDIyOTIzNjcxMjczNDc0.Dsk4PQ.b5RCBuq1OlLYVkHnpMTNgh0dgmM"
+TOKEN = "NTExMDIyOTIzNjcxMjczNDc0.Dsk4PQ.b5RCBuq1OlLYVkHnpMTNgh0dgmM"
 
 client = commands.Bot(command_prefix=BOT_PREFIX)
-
-# TODO: update discord pinned notification
-# TODO: add link to cigarette card exploit
-# TODO: legendary animals locations
-# TODO: add links to mysteries
-# TODO: dreamcatcher maps
 
 
 # - MENUS - ##################################################################
@@ -34,16 +28,62 @@ async def howdy(ctx):
     await ctx.send("!info")
 
 
+# - INFO - ###################################################################
+
+@client.command()
+async def info(ctx):
+    """List info commands."""
+    await ctx.send("i've got plenty of information to share, whad'ya want to know?")
+    await ctx.send("!animals - legendary animal information")
+    await ctx.send("!fish - legendary fish information")
+    await ctx.send("!ciginfo - cigarette card information")
+    await ctx.send("!mystery - mysteries information")
+
+
+@client.command(name="animals")
+async def animal_info(ctx):
+    """List animal information."""
+    await ctx.send("if you've gone hunting with Hosea you should have a map in your satchel...")
+    await ctx.send("if that isn't enough you can find more information here")
+    await ctx.send("https://www.eurogamer.net/articles/2018-11-09-red-dead-redemption-2-legendary-animal-locations-4975")
+
+
+@client.command(name="fish")
+async def fish_info(ctx):
+    """List fish information."""
+    await ctx.send("if you've met with Jeremy Gill you should have a map in your satchel...")
+    await ctx.send("if that isn't enough you can find more information here")
+    await ctx.send("https://www.eurogamer.net/articles/2018-11-09-red-dead-redemption-2-legendary-fish-locations-4975")
+
+
+@client.command(name="ciginfo")
+async def cig_info(ctx):
+    """List cigarette card information"""
+    await ctx.send("you can scour the land looking for cigarette cards, but there may be an easier way")
+    await ctx.send("http://www.powerpyx.com/red-dead-redemption-2-all-cigarette-card-locations/")
+
+
+@client.command(name="mystery")
+async def mystery_info(ctx):
+    """List mystery information."""
+    await ctx.send("there are a lot of mysteries out there")
+    await ctx.send("if yer not afraid of spoilin' some fun, you can find learn more here")
+    await ctx.send("https://www.gamespot.com/videos/uncovering-red-dead-redemption-2s-biggest-mystery/2300-6447057/")
+
+
+# - MAPS - ###################################################################
+
 @client.command()
 async def maps(ctx):
     """List map commands."""
     await ctx.send("there's a lot to find out in the country, here's the maps i got for ya'")
     await ctx.send("------")
+    await ctx.send("!dream - dreamcatcher locations")
+    await ctx.send("!carvin - rock carving locations")
+    await ctx.send("!cigmaps - cigarette card locations")
     await ctx.send("!hadino - New Hanover & Ambarino dino bone locations")
     await ctx.send("!wedino - West Elizabeth dino bone locations")
     await ctx.send("!nadino - New Austin dino bone locations")
-    await ctx.send("!carvin - rock carving locations")
-    await ctx.send("!cigcards - cigarette card locations")
 
 
 @client.command(name="dino")
@@ -56,7 +96,7 @@ async def dino_maps(ctx):
     await ctx.send("!nadino - New Austin dino bone locations")
 
 
-@client.command(name="cigcards")
+@client.command(name="cigmaps")
 async def cigarette_cards(ctx):
     """List cigarette cards map commands."""
     await ctx.send("there's a lotta cards out there, which ones are ya lookin' for?")
@@ -75,7 +115,19 @@ async def cigarette_cards(ctx):
     await ctx.send("!wccigs - the world's champions cigarette cards locations")
 
 
-# - MAPS - ###################################################################
+# - ROCK CARVINGS - ##########################################################
+
+@client.command(name="carv")
+async def rock_carvings(ctx):
+    await ctx.send("http://www.powerpyx.com/wp-content/uploads/red-dead-redemption-2-rock-carvings-locations-map.jpg".format(ctx))
+
+
+# - DREAMCATCHERS - ##########################################################
+
+@client.command(name="dream")
+async def rock_carvings(ctx):
+    await ctx.send("https://cdn.gamerant.com/wp-content/uploads/red-dead-redemption-2-map-dreamcatchers-notes-729x410.jpg.webp".format(ctx))
+
 
 # - DINO BONES - #############################################################
 
@@ -92,13 +144,6 @@ async def west_elizabeth_dino_bones(ctx):
 @client.command(name="nadino")
 async def new_austin_dino_bones(ctx):
     await ctx.send("https://assets.vg247.com/current/2018/11/red-dead-redemption-2-dinosaur-bones-3-768x467.png".format(ctx))
-
-
-# - ROCK CARVINGS - ##########################################################
-
-@client.command(name="carv")
-async def rock_carvings(ctx):
-    await ctx.send("http://www.powerpyx.com/wp-content/uploads/red-dead-redemption-2-rock-carvings-locations-map.jpg".format(ctx))
 
 
 # - CIGARETTE CARDS - ########################################################
