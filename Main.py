@@ -8,10 +8,10 @@ from discord.ext import commands
 BOT_PREFIX = ("!", "?")
 
 # real token
-# TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
+TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
 
 # tester token
-TOKEN = "NTExMDIyOTIzNjcxMjczNDc0.Dsk4PQ.b5RCBuq1OlLYVkHnpMTNgh0dgmM"
+# TOKEN = "NTExMDIyOTIzNjcxMjczNDc0.Dsk4PQ.b5RCBuq1OlLYVkHnpMTNgh0dgmM"
 
 client = commands.Bot(command_prefix=BOT_PREFIX)
 
@@ -209,6 +209,7 @@ async def the_worlds_champions_cards(ctx):
 
 
 async def play_games():
+    """Allow bot to 'play' game and periodically switch between them."""
     await client.wait_until_ready()
     playing_game = True
     game = [
@@ -234,8 +235,15 @@ async def play_games():
             playing_game = True
 
 
+@client.command()
+async def clear(ctx, amount: int):
+    """Clear messages from channel."""
+    await ctx.channel.purge(limit=amount)
+
+
 @client.event
 async def on_ready():
+    """Print logged in message to console to know bot is ready."""
     log_msg = "Logged in as: " + client.user.name
     print(log_msg)
     print("-" * len(log_msg))
