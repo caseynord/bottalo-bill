@@ -1,7 +1,12 @@
 from discord.ext import commands
 
 BOT_PREFIX = ("!", "?")
-TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
+
+# real token
+# TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
+
+# tester token
+TOKEN = "NTExMDIyOTIzNjcxMjczNDc0.Dsk4PQ.b5RCBuq1OlLYVkHnpMTNgh0dgmM"
 
 client = commands.Bot(command_prefix=BOT_PREFIX)
 
