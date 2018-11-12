@@ -9,8 +9,8 @@ from discord.ext import commands
 BOT_PREFIX = "!"
 
 # real token/bot
-# BOT_NAME = "Bottalo Bill"
-# TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
+BOT_NAME = "Bottalo Bill"
+TOKEN = "NTA5OTU4MDIzMjkzNDM1OTE1.DsVYQA.lluEGtYuhDYTTxOR8t_QN-t6nxU"
 
 # tester token/bot
 # BOT_NAME = "TestBot"
