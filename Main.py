@@ -251,7 +251,7 @@ async def clear(ctx, amount: int):
                    "!ciginfo - cigarette card information\n"
                    "!mystery - mysteries information\n"
                    ".\n"
-                   "__Map Commands:__"
+                   "__Map Commands:__\n"
                    "!dream - dreamcatcher locations\n"
                    "!carvin - rock carving locations\n"
                    "!cigmaps - cigarette card locations\n"
