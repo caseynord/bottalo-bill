@@ -4,5 +4,5 @@ chardet==3.0.4
 discord-rewrite==1.0.0
 idna==2.7
 multidict==4.4.2
-websockets==4.0.1
+websockets==5.0
 yarl==1.1.1
